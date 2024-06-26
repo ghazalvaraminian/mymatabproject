@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مطب - رزرو نوبت دکتر و مشاوره پزشکی آنلاین</title>
+    <link rel="icon" href="Icon.png" type="image/icon type">
+    <link href="bootstrap-5.2.3-dist\css\bootstrap.min.css" rel="stylesheet">
+    <link href="HomePageCSS.css" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100..900&display=swap');
+    </style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg bg-light fixed-top">
+        <div class="container">
+
+            <a class="navbar-brand" href="#home">
+                <img src="Asset 2-8.png" alt="لوگو مطب" style="width:166px;height:89px;">
+            </a>
+            <a href="#login">
+                <button class="btn" data-bs-toggle="modal" data-bs-target="#userLoginModal"
+                    style="background-color: #1F4AA0; color: #ffffff; border: none; text-decoration: none; width: 75px; height: 45px;">ورود</button>
+            </a>
+
+            <!--<li>
+                <a class="nav-link" href="#doctor-login">برای پزشکان</a>
+                <i class='bx bxs-user bx-sm' style="color: #ffffff;"></i>
+            </li> -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ol class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#reservation">نوبت دهی</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#call">مشاوره تلفنی</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#chat">مشاوره متنی فوری</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#categories">تخصص ها</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#places">مراکز درمانی</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#services">خدمات پزشکی در محل</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#magazine">مجله سلامت</a>
+                    </li>
+
+                </ol>
+
+            </div>
+        </div>
+    </nav>
+
+    <!-- User Login Modal -->
+    <div class="modal fade" id="userLoginModal" tabindex="-1" aria-labelledby="userLoginModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-logo">
+                    <img src="Asset 2-8.png" alt="لوگو مطب" style="width:166px;height:89px;">
+                </div>
+                <div class="modal-body">
+                    <h3 class="modal-title" id="userLoginModalLabel" style="color: #1F4AA0; font-weight: 800; font-size: 18px; :hover{color: #5DCFE2;}">ورود به حساب کاربری</h3>
+                    <p>برای استفاده از خدمات مطب ، شماره موبایل خود را وارد کنید.
+                        <br>
+                        <br>
+                        شماره موبایل:
+                    </p>
+                    <div class="mb-3 input-group">
+                        <input id="phoneNumberInput" type="text" class="form-control" placeholder="09*********">
+                    </div>
+                </div>
+                <div class="modal-btn">
+                    <button id="sendCodeBtn" type="button" class="btn" style="width: 380px;" data-bs-toggle="modal" data-bs-target="#checkCodeModal">ارسال کد تایید</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /User Login Modal -->
+
+    <!-- Verification Code Modal -->
+    <div class="modal fade" id="checkCodeModal" tabindex="-1" aria-labelledby="checkCodeModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-logo">
+                    <img src="Asset 2-8.png" alt="لوگو مطب" style="width:166px;height:89px;">
+                </div>
+                <div class="modal-body">
+                    <h3 class="modal-title" id="userLoginModalLabel" style="color: #1F4AA0; font-weight: 800; font-size: 18px; :hover{color: #5DCFE2;}">دریافت کد تایید</h3>
+                    <p>لطفا کد ارسال شده به شماره موبایل *********09 را وارد کنید</p>
+                    <div class="code-check">
+                        <input type="text" id="verificationCodeInput" class="form-control">
+                        <input type="text" id="verificationCodeInput" class="form-control">
+                        <input type="text" id="verificationCodeInput" class="form-control">
+                        <input type="text" id="verificationCodeInput" class="form-control">
+                        
+                    </div>
+                </div>
+                <div class="modal-btn">
+                    <button id="submitCodeBtn" type="button" class="btn" style="width: 380px;"">ورود به حساب</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /Verification Code Modal -->
+
+    <div class="Matn-Vasat">
+        <div class="chert">
+            <h1>بیش از <span style="color: #1F4AA0;">175000</span> دکتر در<br>
+                <span style="color: #1F4AA0;">مطب</span> منتظر شما هستند
+            </h1>
+
+
+        </div>
+        <div class="search-bar">
+            <form id="form">
+                <input
+                    style="width: 225px; height: 50px; font-size: 14px; direction: rtl; box-shadow: 1px 1px #e0e0e0; border: none;"
+                    type="search" id="query" name="q" placeholder="جستجو نام، نام کلینیک، تخصص...">
+                <button class="btn">جستجو</button>
+            </form>
+        </div>
+    </div>
+        <div class="mycarousel">
+            <div class="listofservice">
+                <p style="color:#828282; margin: 0%; width: 150px; height: 50px; padding-top: 15px;">جستجو های پرتکرار:
+                </p>
+                <ul>
+
+                    <li>
+                        <a href="ZananZaiman.html"><button class="mycarousel-item" >زنان،زایمان و نازایی</button></a>
+                    </li>
+                    <li>
+                        <button class="mycarousel-item" >کودکان</button>
+                    </li>
+                    <li>
+                        <button class="mycarousel-item" >عمومی</button>
+                    </li>
+                    <li>
+                        <button class="mycarousel-item" >داخلی</button>
+                    </li>
+                    <li>
+                        <button class="mycarousel-item" >غدد و متابولیسم</button>
+                    </li>
+                    <li>
+                        <button class="mycarousel-item" >قلب و عروق</button>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+        <!-- About Section -->
+
+        <!-- Easy Access Cards -->
+        <section id="colleges" class="colleges section-padding">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 col-md-12 col-lg-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <i class='bx bxs-time-five bx-lg' style="color: #1F4AA0;"></i>
+                                <h3 class="card-title">دریافت نوبت حضوری</h3>
+                                <p>دریافت نوبت اینترنتی برای مراجعه حضوری به مطب پزشکان</p>
+
+                                <a class="card-link" href="#">لیست پزشکان<i class='bx bx-chevron-left bx-sm'
+                                        style="color: #1F4AA0;"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-12 col-lg-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <i class='bx bxs-phone bx-lg' style="color: #1F4AA0;"></i>
+                                <h3 class="card-title">مشاوره تلفنی</h3>
+                                <p>دریافت مشاوره از پزشکان متخصص و مجرب به صورت تلفنی</p>
+
+                                <a class="card-link" href="#">دریافت مشاوره<i class='bx bx-chevron-left bx-sm'
+                                        style="color: #1F4AA0;"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-12 col-lg-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <i class='bx bxs-message-rounded bx-lg' style="color: #1F4AA0;"></i>
+                                <h3 class="card-title">مشاوره متنی فوری</h3>
+                                <p>مشاوره متنی فوری با اولین پزشک آنلاین</p>
+
+                                <a class="card-link" href="#">ثبت درخواست<i class='bx bx-chevron-left bx-sm'
+                                        style="color: #1F4AA0;"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-12 col-lg-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <i class='bx bxs-first-aid bx-lg' style="color: #1F4AA0;"></i>
+                                <h3 class="card-title">خدمات پزشکی و<br> آزمایش در محل</h3>
+                                <p>دریافت خدمات پزشکی انجام انواع آزمایشات در منزل شما</p>
+
+                                <a class="card-link" href="#">لیست خدمات<i class='bx bx-chevron-left bx-sm'
+                                        style="color: #1F4AA0;"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+    <section class="myswipes">
+        <div class="matn-swipe">
+            <div>
+                <h1 style="color: #4379FF; font-size: 35px; font-weight: 600;">ویزیت فوری پزشک</h1>
+                <h5>امکان ارسال پیام و فایل تا ۲۴ ساعت بعد از مشاوره</h5>
+            </div>
+            <div>
+                <a class="card-link" style=" color: #4379FF; margin-top: 50px;" href="#">مشاهده همه پزشکان<i
+                        class='bx bx-chevron-left bx-sm' style="color: #4379FF;"></i></a>
+            </div>
+        </div>
+
+        <div class="swiper" slides-per-view="3" free-mode="true">
+            <!-- Additional required wrapper -->
+            <div class="swiper-wrapper">
+                <!-- Slides -->
+                <div class="swiper-slide">
+                    <div class="pictured-card">
+                        <div class="pictured-card-body">
+                            <i class='bx bxs-user-rectangle' style="color: #1F4AA0; font-size: 100px;"></i>
+                            <h3 class="card-title">دکتر آنا ایمانی اقدم</h3>
+                            <p>کارشناسی ارشد روانشناسی عمومی</p>
+                            <div class="card-stuff">
+                                <div>
+                                    <p>مدت زمان مشاوره</p>
+                                    <p>پاسخگویی</p>
+
+                                </div>
+                                <div>
+                                    <p>45 دقیقه</p>
+                                    <p>آماده پاسخگویی</p>
+                                </div>
+                            </div>
+
+                            <button class="btn" style="width: 275px; height: 50px; font-size: large;" href="#">شروع
+                                مشاوره</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="swiper-slide">
+                    <div class="pictured-card">
+                        <div class="pictured-card-body">
+                            <i class='bx bxs-user-rectangle' style="color: #1F4AA0; font-size: 100px;"></i>
+                            <h3 class="card-title">دکتر شیوا خدارحمی</h3>
+                            <p>کارشناس ارشد مامایی</p>
+                            <div class="card-stuff">
+                                <div>
+                                    <p>مدت زمان مشاوره</p>
+                                    <p>پاسخگویی</p>
+
+                                </div>
+                                <div>
+                                    <p>10 دقیقه</p>
+                                    <p>آماده پاسخگویی</p>
+                                </div>
+                            </div>
+
+                            <button class="btn" style="width: 275px; height: 50px; font-size: large;" href="#">شروع
+                                مشاوره</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="pictured-card">
+                        <div class="pictured-card-body">
+                            <i class='bx bxs-user-rectangle' style="color: #1F4AA0; font-size: 100px;"></i>
+                            <h3 class="card-title">دکتر سارا امینی</h3>
+                            <p>متخصص زنان و زایمان</p>
+                            <div class="card-stuff">
+                                <div>
+                                    <p>مدت زمان مشاوره</p>
+                                    <p>پاسخگویی</p>
+
+                                </div>
+                                <div>
+                                    <p>40 دقیقه</p>
+                                    <p>آماده پاسخگویی</p>
+                                </div>
+                            </div>
+
+                            <button class="btn" style="width: 275px; height: 50px; font-size: large;" href="#">شروع
+                                مشاوره</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="pictured-card">
+                        <div class="pictured-card-body">
+                            <i class='bx bxs-user-rectangle' style="color: #1F4AA0; font-size: 100px;"></i>
+                            <h3 class="card-title">دکتر محمدرسول فتحی</h3>
+                            <p>دکترای حرفه ای پزشکی</p>
+                            <div class="card-stuff">
+                                <div>
+                                    <p>مدت زمان مشاوره</p>
+                                    <p>پاسخگویی</p>
+
+                                </div>
+                                <div>
+                                    <p>15 دقیقه</p>
+                                    <p>آماده پاسخگویی</p>
+                                </div>
+                            </div>
+
+                            <button class="btn" style="width: 275px; height: 50px; font-size: large;" href="#">شروع
+                                مشاوره</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- If we need pagination -->
+        </div>
+    </section>
+
+    <section class="myswipes">
+        <div class="matn-swipe">
+            <div>
+                <h1 style="color: #5DCFE2; font-size: 35px; font-weight: 600;">معرفی پزشکان</h1>
+                <h5>نوبت‌دهی اینترنتی و رایگان از پزشکان سراسر ایران</h5>
+            </div>
+            <div>
+                <a class="card-link" style=" color: #5DCFE2; margin-top: 50px;" href="#">مشاهده همه پزشکان<i
+                        class='bx bx-chevron-left bx-sm' style="color: #5DCFE2;"></i></a>
+            </div>
+        </div>
+
+        <div class="swiper" pagination="true" pagination-clickable="true" slides-per-view="3" free-mode="true">
+            <!-- Additional required wrapper -->
+            <div class="swiper-wrapper" pagination="true" pagination-clickable="true" slides-per-view="3"
+                free-mode="true">
+                <!-- Slides -->
+                <div class="swiper-slide">
+                    <div class="pictured-card">
+                        <div class="pictured-card-body">
+                            <i class='bx bxs-user-rectangle' style="color: #5DCFE2; font-size: 100px;"></i>
+                            <h3 class="card-title">دکتر آنا ایمانی اقدم</h3>
+                            <p>کارشناسی ارشد روانشناسی عمومی</p>
+                            <div class="card-stuff">
+                                <div>
+                                    <p>مدت زمان مشاوره</p>
+                                    <p>پاسخگویی</p>
+
+                                </div>
+                                <div>
+                                    <p>45 دقیقه</p>
+                                    <p>آماده پاسخگویی</p>
+                                </div>
+                            </div>
+
+                            <button class="btn"
+                                style="width: 275px; height: 50px; font-size: large; background-color: #5DCFE2;"
+                                href="#">شروع مشاوره</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="swiper-slide">
+                    <div class="pictured-card">
+                        <div class="pictured-card-body">
+                            <i class='bx bxs-user-rectangle' style="color: #5DCFE2; font-size: 100px;"></i>
+                            <h3 class="card-title">دکتر شیوا خدارحمی</h3>
+                            <p>کارشناس ارشد مامایی</p>
+                            <div class="card-stuff">
+                                <div>
+                                    <p>مدت زمان مشاوره</p>
+                                    <p>پاسخگویی</p>
+
+                                </div>
+                                <div>
+                                    <p>10 دقیقه</p>
+                                    <p>آماده پاسخگویی</p>
+                                </div>
+                            </div>
+
+                            <button class="btn"
+                                style="width: 275px; height: 50px; font-size: large; background-color: #5DCFE2;"
+                                href="#">شروع مشاوره</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="pictured-card">
+                        <div class="pictured-card-body">
+                            <i class='bx bxs-user-rectangle' style="color: #5DCFE2; font-size: 100px;"></i>
+                            <h3 class="card-title">دکتر سارا امینی</h3>
+                            <p>متخصص زنان و زایمان</p>
+                            <div class="card-stuff">
+                                <div>
+                                    <p>مدت زمان مشاوره</p>
+                                    <p>پاسخگویی</p>
+
+                                </div>
+                                <div>
+                                    <p>40 دقیقه</p>
+                                    <p>آماده پاسخگویی</p>
+                                </div>
+                            </div>
+
+                            <button class="btn"
+                                style="width: 275px; height: 50px; font-size: large; background-color: #5DCFE2;"
+                                href="#">شروع مشاوره</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="pictured-card">
+                        <div class="pictured-card-body">
+                            <i class='bx bxs-user-rectangle' style="color: #5DCFE2; font-size: 100px;"></i>
+                            <h3 class="card-title">دکتر محمدرسول فتحی</h3>
+                            <p>دکترای حرفه ای پزشکی</p>
+                            <div class="card-stuff">
+                                <div>
+                                    <p>مدت زمان مشاوره</p>
+                                    <p>پاسخگویی</p>
+
+                                </div>
+                                <div>
+                                    <p>15 دقیقه</p>
+                                    <p>آماده پاسخگویی</p>
+                                </div>
+                            </div>
+
+                            <button class="btn"
+                                style="width: 275px; height: 50px; font-size: large; background-color: #5DCFE2;"
+                                href="#">شروع مشاوره</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- If we need pagination -->
+        </div>
+
+    </section>
+    <!--Comments section-->
+    <section class="comments-section">
+        <div class="matn-comments">
+                <h1 style="color: #4379FF; font-size: 35px; font-weight: 600;">نظرات کاربران مطب</h1>
+                <h5>بیش از ۷ میلیون کاربر از خدمات مطب استفاده کرده‌اند</h5>
+        </div>
+        <div class="comments">
+            <div class="comment">
+                <h5><i class='bx bxs-user-rectangle' style="color: #1F4AA0; font-size: 70px;"></i>فاطمه</h5>
+                <p>دکتر بسیار عالی و مودبی هستن....تشخیص بجا و
+                    <br> کار تمام ولی خواهشمندم که منشی دکتر مودبانه و
+                    <br> مهربانی با بیماران رفتار کند....من هر بار اومدم دکتر
+                    <br> منشی رفتار...
+                </p>
+                <h5><span style="color: #1F4AA0;">مراجعه</span> به دکتر رضا سلیمانی زاد</h5>
+            </div>
+            <div class="comment">
+                <h5><i class='bx bxs-user-rectangle' style="color: #1F4AA0; font-size: 70px;"></i>زهره</h5>
+                <p>دکتر بسیار عالی و مودبی هستن....تشخیص بجا و
+                    <br> کار تمام ولی خواهشمندم که منشی دکتر مودبانه و
+                    <br> مهربانی با بیماران رفتار کند....من هر بار اومدم دکتر
+                    <br> منشی رفتار...
+                </p>
+                <h5><span style="color: #1F4AA0;">مراجعه</span> به دکتر محمد شریف یزدی</h5>
+            </div>
+            <div class="comment">
+                <h5><i class='bx bxs-user-rectangle' style="color: #1F4AA0; font-size: 70px;"></i>کاربر مطب</h5>
+                <p>دکتر بسیار عالی و مودبی هستن....تشخیص بجا و
+                    <br> کار تمام ولی خواهشمندم که منشی دکتر مودبانه و
+                    <br> مهربانی با بیماران رفتار کند....من هر بار اومدم دکتر
+                    <br> منشی رفتار...
+                </p>
+                <h5><span style="color: #1F4AA0;">مراجعه</span> به دکتر منصور شاهرخی</h5>
+            </div>
+        </div>
+    </section>
+    <!--Blue section for application-->
+    <section class="tablighatapp">
+        <div class="matnoax">
+            <div class="axesh">
+                <img src="phone.png" alt="اپلیکیشن" style="width: 270px; height:396px;">
+            </div>
+            <div class="matnesh">
+                <h3 style="color: #1F4AA0;">سامانه رزرو نوبت دکتر آنلاین</h3>
+                <p>با استفاده از خدمات سلامت دیجیتال مطب، تجربه سریع و راحت از خدمات
+                    <br> پزشکی داشته باشید. نوبت‌دهی آنلاین، دریافت مشاوره به صورت تلفنی و
+                    <br> استفاده از خدمات کلینیک‌ها و مراکز درمانی از جمله خدمات ما هستند.
+                    <br> همچنین برای تجربه بهتر در استفاده از خدمات ما بر روی تلفن همراه،
+                    <br> می‌توانید نرم‌افزار ما برای گوشی‌های اندروید را دریافت و نصب کنید.
+                </p>
+                <h3 style="color: #1F4AA0;">دانلود اپلیکیشن مطب</h3>
+                <div class="download-links">
+                    <a href="#download_bazaar"><img src="bazaar.png" alt="لینک بازار" style="width:150px; height:50px"></a>
+                    <a href="#download_myket"><img src="myket.png" alt="لینک مایکت" style="width:150px; height:50px"></a>
+                </div>
+            </div>
+        </div>
+        <div class="questions">
+            <div class="questions-matn">
+                <h4 style="color: #1F4AA0;">در تمام لحظات همراهتونیم</h4>
+                <p>پشتیبانی ۷ روز هفته؛ ۹ صبح الی ۱ بامداد</p>
+                <p style="font-weight: bold;">021-123456456</p>
+            </div>
+            <div class="vline"></div>
+            <div class="questions-matn">
+                
+                <h4 style="color: #1F4AA0;">سوالات احتمالی شما</h4>
+                <p>مشاهده سوالات پرتکرار کاربران</p>
+                <button class="btn" href="#" style="font-size:small; font: weight 200; width:130px; height:30px">سوالات پرتکرار<i class='bx bx-chevron-left'></i></button>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!--footer section-->
+    <footer class="footer">
+        <div class="footer-col1">
+            <div class="brand">
+                <img src="Asset 2-8.png" alt="لوگو مطب" style="width:166px;height:89px;">
+            </div>
+            <p>پاسخگویی ۷ روز هفته از ساعت ۹ صبح تا ۱ بامداد</p>
+            <p><i class='bx bxs-phone' style="color: #828282; font-size:35px"></i> 021-123456456</p>
+            <p>ما را در شبکه‌های اجتماعی دنبال کنید:</p>
+            <p style="margin-right: 5px;">
+                <i class='bx bxl-telegram' style="color: #828282; font-size:35px "></i>
+                <i class='bx bxl-linkedin-square' style="color: #828282; font-size:35px" ></i>
+                <i class='bx bxl-instagram-alt' style="color: #828282; font-size:35px" ></i>
+            </p>
+            <p><i class='bx bxs-location-plus' style="color: #828282; font-size:35px"></i> تهران، خیابان مفتح، خیابان خاقانی،دانشگاه خوارزمی</p>
+            <p>کد پستی:  12345678</p>
+            <div style="display: flex; flex-direction: row">
+            <a class="footer-link" href="#">قوانین و مقررات</a>
+            <a class="footer-link" href="#">حفظ حریم شخصی</a>
+            </div>
+        </div>
+        <div class="footer-col2">
+            <p style="color: #1F4AA0;">لینک های مفید: </p>
+            <a class="footer-link2" href="#">ورود و ثبت نام</a>
+            <a class="footer-link2" href="#">بیماران</a>
+            <a class="footer-link2" href="#">ورود پزشکان</a>
+            <a class="footer-link2" href="#">ثبت نام پزشکان</a>
+            <a class="footer-link2" href="#">مجله ثبت نام</a>
+            <a class="footer-link2" href="#">لیست تخصص ها</a>
+            <a class="footer-link2" href="#">مشاوره تلفنی</a>
+            <a class="footer-link2" href="#">لیست مراکز</a>
+            <a class="footer-link2" href="#">درمانی</a>
+            <a class="footer-link2" href="#">فرصت های شغلی</a>
+        </div>
+        <div class="footer-col3">
+            <p style="color: #1F4AA0;">گواهینامه ها: </p>
+            <a class="govahi" href="https://reg2.enamad.ir/">
+                <img src="Enamad.png" alt="اینماد" style="width: 100px; height: 100px;">
+            </a>
+            <a class="govahi" href="https://reg2.enamad.ir/">
+                <img src="samandehi.png" alt="ساماندهی" style="width: 100px; height: 100px;">
+            </a>
+        </div>
+    </footer>
+    
+    <!-- Bootstrap JS -->
+    <script src="bootstrap-5.2.3-dist\js\bootstrap.min.js"></script>
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="submitcode.js"></script>
+    <script src="Swiper.Js"></script>
+</body>
+
+
+</html>

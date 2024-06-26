@@ -1,0 +1,353 @@
+
+* {
+    font-family: "Vazirmatn";
+    border-radius: 8px;
+}
+
+h3,h2{
+    font-size: 25px;
+}
+
+body {
+    background: #f1f1f1;
+}
+
+.section-padding {
+    padding: 100px 0;
+}
+ul{
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+}
+.mycarousel{
+    box-direction: ltr;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+}
+
+.listofservice {
+    direction: rtl;
+    margin-top: 50px;
+    width: 1200px;
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items:center;
+    padding: 10px 0;
+    
+}
+.mycarousel-item{
+    background-color: #ffffff;
+    font-weight: 500;
+    color: #1F4AA0;
+    border-color: #1F4AA0;
+    border-radius: 8px;
+    border-width: 0.5px;
+    width: 150px;
+    height: 50px;
+    margin: 3px;
+}
+
+.navbar-nav{
+    margin-top: 100px;
+    font-size: 13px;
+}
+
+.nav-link{
+    color: rgb(0, 14, 40);
+    font-weight:650;
+}
+.navbar-brand{
+    display: flex;
+    order: 1;
+}
+.navbar-toggler {
+    color: #1F4AA0;
+    display: flex;
+    order: 2;
+}
+
+.Matn-Vasat{
+    direction: rtl;
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-top: 250px;
+    margin-bottom: 25px;
+    display: flex;
+    width: 60%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.search-bar{
+    margin-top: 25px;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-start;
+    
+}
+
+
+.row{
+    width: 1300px;
+    display: flex;
+    direction: rtl;
+}
+.card{
+    background-color: #ffffff;
+    box-shadow: 3px 3px 3px 3px #e0e0e0;
+    height: 300px;
+    direction: rtl;
+    border-radius: 8px;
+    margin-bottom: 5px;
+}
+.card-body{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.card-link{
+    color: #1F4AA0;
+    font-size: 18px;
+    cursor: pointer;
+    text-decoration: none;
+    display: flex;
+    justify-content:right;
+
+}
+
+.w-100 {
+    height: 100vh;
+}
+.myswipes{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 50px;
+    
+}
+.matn-swipe{
+    width: 1750px;
+    direction: rtl;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+.swiper{
+    direction: rtl;
+    width: 1000px;
+    height: 400px;
+}
+.swiper-slide {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+  }
+.swiper-container{
+    width: 1000px;
+    height: 400px;
+}
+
+.mySwiper{
+    width: 1000px;
+    height: 450px;
+}
+
+.pictured-card{
+    background-color: #F7F7F7;
+    box-shadow: 3px 3px #e0e0e0;
+    margin: 5px;
+    width: 300px;
+    height: 350px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.btn{
+    background-color: #1F4AA0;
+    color: #ffffff;
+    border: none;
+    text-decoration: none;
+    width: 75px;
+    height: 45px;
+}
+
+.pictured-card-body{
+    padding: 5%;
+    height: 350px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+.card-stuff{
+    color: rgb(117, 117, 117);
+    width: 300px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+
+}
+
+.comments-section{
+    padding: 50px;
+    width: 1450px;
+    direction: rtl;
+    display: flex;
+    flex-direction: column;
+}
+.comments{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.comment{
+    margin-top: 30px;
+    background-color: #ffffff;
+    width: 350px;
+    height: 250px;
+    border-width: 5px;
+    border-color: #1F4AA0;
+    padding: 10px;
+
+}
+
+.tablighatapp{
+    direction: rtl;
+    background-color: rgba(31, 74, 160, 0.13);
+    display: flex;
+    flex-direction: column;
+}
+
+.matnoax{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.axesh{
+    display: flex;
+    order: 2;
+}
+.matnesh{
+    padding: 60px;
+}
+
+.vline{
+    width:2px;
+    height:100px;
+    background-color: #1F4AA0;
+}
+.questions{
+    
+    padding: 60px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.questions-matn{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.footer{
+    direction: rtl;
+    display: block;
+    padding: 70px 70px 50px 70px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    position: relative;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    color: black;
+    background-color: rgb(248 249 250);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+    font-size: 20px;
+    font-weight: 400;
+}
+.footer-link {
+    color: black;
+    text-decoration: none;
+    display: flex;
+    margin: 20px;
+}
+.footer-col2{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.footer-link2 {
+    color: black;
+    text-decoration: none;
+    display: flex;
+}
+
+.modal-content{
+    width: 450px;
+    height: 450px;
+    padding: 5%;
+    padding-top: 50px ;
+    padding-bottom: 50px ;
+    direction: rtl;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.code-check{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.form-control{
+    width: 50px;
+    height: 50px;
+}
+@media only screen and (min-width:767px) and (max-width: 991px) {
+    .carousel-caption {
+        bottom: 350px;
+    }
+    .carousel-caption h5 {
+        padding: 10px 15px;
+        font-size: 15px;
+    }
+    .carousel-caption p {
+        font-size: 10px;
+    }
+}
+
+/* Responsive Css with Media Query (Mobile) */
+@media only screen and (max-width:767px) {
+    .navbar-nav {
+        text-align: center;
+    }
+
+    .carousel-caption {
+        bottom: 125px;
+    }
+
+    .carousel-caption h5 {
+        padding: 10px 15px;
+        font-size: 15px;
+    }
+    .carousel-caption p {
+        font-size: 10px;
+    }
+}
+
+.about-text{
+    direction: rtl;
+    text-align: right;
+}
